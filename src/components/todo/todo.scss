@@ -57,6 +57,7 @@ body, html {
             &.complete-true {
               span {
                   background: seagreen;
+                  color
                   &:hover {
                     background: pink;
                 }
@@ -68,7 +69,7 @@ body, html {
                 background: #ee6fdd;
                 width: fit-content;
                 height: 50px;
-                padding: 5px;
+                // padding: 5px;
                 cursor:pointer;
                 &:hover {
                     background: seagreen;
