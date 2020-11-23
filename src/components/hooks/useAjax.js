@@ -55,13 +55,19 @@ export default function useAjax(list,cb) {
 
 
    
-        const deletingFunc = (url, id) => {
+        const deletingFunc = (id) => {
+          let item = list.filter(i => i._id === id)[0] || {};
+
+          if (item._id) {
+      
+          let url = `${todoAPI}/${id}`;
 
             axios.delete(url)
                 .then(savedItem => {
                     console.log('delete  -->', savedItem)
                     cb(list.filter(item => item._id != id))
                 })
+              }
     };
 
     return [getFunc, postFunc, putFunc, deletingFunc ]
