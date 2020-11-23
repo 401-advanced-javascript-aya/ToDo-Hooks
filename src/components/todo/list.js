@@ -11,6 +11,8 @@ const {list, handleComplete, handleDelete} = props
           <button onClick={() => handleDelete(item._id)}>x</button>
            
             <span onClick={() => handleComplete(item._id)}>
+            <strong> Difficulty: {item.difficulty} </strong><br></br>
+
             <strong> {item.assignee} </strong>{item.text}
             </span>
           
