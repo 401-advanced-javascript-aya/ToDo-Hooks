@@ -1,20 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import UseForm from '../hooks/useForm';
 
-export default function TodoFormHook() {
-    const [item, setItem] = useState({});
-
-    const handleInputChange = e => {
-        setItem({...item, [e.target.name]: e.target.value });
-      };
-
-
-   const handleSubmit = (e) => {
-        e.preventDefault();
-        e.target.reset();
-        handleSubmit(item);
-        const items = {};
-        setItem({items});
-      };
+export default function TodoForm(props) {
+  const [handleSubmit, handleInputChange ] = UseForm(handelUseForm);
+ 
+  function handelUseForm(item){ 
+    console.log('handelUseForm,,,,,');
+    props.handleSubmit(item);
+  };
       return (
         <>
           <h3>Add Item</h3>
