@@ -25,4 +25,3 @@ const {list, handleComplete, handleDelete} = props
 
 
 
-// export default TodoList;
