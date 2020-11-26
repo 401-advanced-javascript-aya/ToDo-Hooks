@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import TodoForm from './formHooks';
 import TodoList from './list.js';
+import Card from 'react-bootstrap/Card';
+
 
 
 import './todo.scss';
@@ -13,7 +15,6 @@ const ToDo = () => {
   const [list, setList] = useState([]);
   const [getFunc, postFunc, putFunc ,deletingFunc ] = useAjax(list,setList);
   
-  console.log('hi');
   
   const _addItem = (item) => {
     
@@ -50,11 +51,16 @@ const ToDo = () => {
         </h2>
       </header>
 
-      <section className="todo">
+      <section className="todo" style={{ marginLeft: '70px' }}>
 
-        <div>
-          <TodoForm handleSubmit={_addItem} />
-        </div>
+                <div>
+                    <Card style={{ width: '18rem' }}>
+                        <Card.Body>
+
+                            <TodoForm handleSubmit={_addItem} />
+                        </Card.Body>
+                    </Card>
+                </div>
 
         <div>
           <TodoList

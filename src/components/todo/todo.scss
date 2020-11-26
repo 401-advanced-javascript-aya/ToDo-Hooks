@@ -57,20 +57,22 @@ body, html {
             &.complete-true {
               span {
                   background: seagreen;
-                  color
-                  &:hover {
-                    background: pink;
-                }
+                //   &:hover {
+                //     background: pink;
+                // }
               }
             }
 
             span {
                 font-size: larger;
-                background: #ee6fdd;
-                width: fit-content;
-                height: 50px;
-                // padding: 5px;
+                background: rgb(128, 34, 34);
+                color: white;
+                // width: 10px;
+                height: 25px;
+                border-radius: 30%;
+                padding: 5px;
                 cursor:pointer;
+                
                 // &:hover {
                 //     background: seagreen;
                 // }
@@ -78,8 +80,8 @@ body, html {
              span, input {
                 //  border: .5px solid #eee;
                  display:inline-block;
-                 padding: 0;
-                 width: 300px;
+                 padding: 5;
+                 width: 70px;
                  margin: 0px;
              }
 
@@ -96,7 +98,9 @@ body, html {
     }
 
 }
-
+#xButton{
+    align-self: center;
+}
 
 #ezbotplz{
     color: #fff;
@@ -106,4 +110,8 @@ body, html {
     width: fit-content;
 
 }
-
+#containHead{
+    display: grid;
+    grid-template-columns: auto auto;
+    height: 5px;
+}

@@ -5,7 +5,18 @@ const todoAPI = 'https://api-js401.herokuapp.com/api/v1/todo';
 
 export default function useAjax(list,cb) {
     // const [list, setList] = useState([]);
-
+    const compare = (a, b) => {
+      const first = a.difficulty;
+      const second = b.difficulty;
+    
+      let comparison = 0;
+      if (first > second) {
+        comparison = 1;
+      } else if (first < second) {
+        comparison = -1;
+      }
+      return comparison;
+    }
     const getFunc = () => {
         axios({
             method: 'get',
@@ -13,8 +24,12 @@ export default function useAjax(list,cb) {
             // responseType: 'stream'
           }).then(data => {
             // console.log(data.data.results);
-            cb([...data.data.results]);
+            cb([...data.data.results.sort(compare)]);
             // setList(data.data.results)
+            // data.data.results.forEach(element => {
+
+              console.log('aaaaaaaaaaaaaa',data.data.results.sort(compare));
+            // });
           })
             .catch(console.error);
     };
@@ -35,21 +50,17 @@ export default function useAjax(list,cb) {
       };
 
       
-    const putFunc = (id) => {
-        // console.log('fffffffffffffffff',item);
+      const putFunc = (id) => {
         let item = list.filter(i => i._id === id)[0] || {};
-
+        
         if (item._id) {
-    
           item.complete = !item.complete;
-    
           let url = `${todoAPI}/${id}`;
           axios.put(url, item)
           .then(savedItem => {
-            console.log('testttttttt',savedItem.data);
+            // console.log('testttttttt',savedItem.data);
               cb(list.filter(listItem => listItem._id === item._id ? savedItem.data : listItem));
-          })
-          
+          })          
     };
 }
 
